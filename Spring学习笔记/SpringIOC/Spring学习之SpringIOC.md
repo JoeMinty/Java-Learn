@@ -113,3 +113,89 @@ IOC （超级工厂）
 ​	注入各种集合数据类型: `List` ` Set` `map` `properties`
 
 `set`、`list`、数组   各自都有自己的标签<set> <list> <array>，但是也可以混着用。
+
+
+
+给对象类型赋值`null` ：
+```
+		<property name="name" >  
+				<null/>       -->注意 没有<value>
+		</property>
+```
+赋空值
+```
+		<property name="name" >  
+				<value></value>  
+		</property>
+```
+
+**在`ioc`中定义`bean`的前提：该`bean`的类 必须提供了 无参构造**
+
+
+
+**`value`与`<value>`注入方式的区别：**
+
+ 
+
+|                                         | 使用子元素`<value>`注入                                        | 而使用`value`属性注入                     |
+| --------------------------------------- | ------------------------------------------------------------ | --------------------------------------- |
+| 参数值位置                              | 写在首尾标签（`<value></value>`）的中间(不加双引号)            | 写在`value`的属性值中（必须加双引号）     |
+| `type`属性                                | 有（可选）可以通过`type`属性指定数据类型                       | 无                                      |
+| 参数值包含特殊字符（<， &）时的处理方法 | 两种处理方法。**一、使用`<![CDATA[ ]]>`标记**二、使用`XML`预定义的实体引用 | 一种处理方法。即使用`XML`预定义的实体引用 |
+
+ 
+
+其中，`XML`预定义的实体引用，如表所示。
+
+| 实体引用 | 表示的符号 |
+| -------- | ---------- |
+| &lt;     | <          |
+| &amp;    | &          |
+| &gt;     | >          |
+
+
+
+### 6、自动装配
+
+自动装配（只适用于 `ref`类型 ）：
+​	约定优于配置
+
+自动装配：
+
+```
+<bean ... class="org.moons.entity.Course"  autowire="byName|byType|constructor|no" >  byName本质是byId
+```
+
+
+
+- `byName`:  自动寻找：其他`bean`的`id`值=该`Course`类的属性名
+- `byType`:  其他`bean`的类型(`class`)  是否与 该`Course`类的`ref`属性类型一致  （注意，此种方式 必须满足：当前`Ioc`容器中 只能有一个`Bean`满足条件  ）
+- `constructor`： 其他`bean`的类型(`class`)  是否与 该`Course`类的构造方法参数 的类型一致；此种方式的本质就是`byType`
+
+可以在头文件中 一次性将该ioc容器的所有bean  统一设置成自动装配：
+
+```
+<beans xmlns="http://www.springframework.org/schema/beans"
+...
+default-autowire="byName">
+```
+
+
+
+自动装配虽然可以减少代码量，但是会降低程序的可读性，使用时需要谨慎。
+
+
+
+### 7、使用注解定义bean：通过注解的形式 将bean以及相应的属性值 放入ioc容器
+
+```
+<context:component-scan base-package="org.moons.dao">
+```
+
+`</context:component-scan> Spring`在启动的时候，会根据`base-package`在 该包中扫描所有类，查找这些类是否有注解`@Component("studentDao")`,如果有，则将该类 加入`Spring Ioc`容器。
+
+`@Component`细化：
+
+- `dao`层注解：`@Repository`
+- `service`层注解：`@Service`
+- 控制器层注解：`@Controller`
