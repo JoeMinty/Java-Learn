@@ -51,8 +51,7 @@ student.setXxx();
 3、IOC （超级工厂）
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/springioc%E5%AE%B9%E5%99%A8.png
-" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/springioc%E5%AE%B9%E5%99%A8.png" />
 </div>
 
 `IOC`（控制反转）也可以称之为`DI`（依赖注入）：
