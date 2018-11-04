@@ -31,7 +31,9 @@ http://maven.springframework.org/release/org/springframework/spring/
 	Student student = (Student)context.getBean("student") ;
 可以发现，`springIOC`容器 帮我们`new`了对象，并且给对象赋了值。
 
-
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/new%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.png" />
+</div>
 
 ### 4、SpringIOC发展史：
 1、
@@ -49,7 +51,10 @@ student.setXxx();
 
 IOC （超级工厂）
 
-
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/springioc%E5%AE%B9%E5%99%A8.png
+" />
+</div>
 
 `IOC`（控制反转）也可以称之为`DI`（依赖注入）：
 **控制反转：**将 创建对象、属性值 的方式 进行了翻转，从`new`、`setXxx()`  翻转为了 从`SpringIOC`容器`getBean()`
@@ -63,7 +68,9 @@ IOC （超级工厂）
 - 先给`springioc`中存放对象并赋值   
 - 2 拿
 
-
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/%E4%BB%8EIoc%E4%B8%AD%E8%8E%B7%E5%8F%96.png" />
+</div>
 
 `DI`:依赖注入 ，
 `Teacher`  
