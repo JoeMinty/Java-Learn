@@ -20,7 +20,8 @@ http://maven.springframework.org/release/org/springframework/spring/
 
 ### 2、编写配置文件
 
-新建：`bean configuration`  `applicationContext.xml`
+新建：
+`bean configuration`  `applicationContext.xml`
 
 
 
@@ -47,9 +48,7 @@ student.setXxx();
 2、
 简单工厂
 
-3、
-
-IOC （超级工厂）
+3、IOC （超级工厂）
 
 <div align="center">
 <img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/springioc%E5%AE%B9%E5%99%A8.png
@@ -57,8 +56,10 @@ IOC （超级工厂）
 </div>
 
 `IOC`（控制反转）也可以称之为`DI`（依赖注入）：
-**控制反转：**将 创建对象、属性值 的方式 进行了翻转，从`new`、`setXxx()`  翻转为了 从`SpringIOC`容器`getBean()`
-**依赖注入：**将属性值 注入给了属性，将属性 注入给了`bean`，将`bean`注入给了`ioc`容器；
+
+**控制反转：** 将 创建对象、属性值 的方式 进行了翻转，从`new`、`setXxx()`  翻转为了 从`SpringIOC`容器`getBean()`
+
+**依赖注入：** 将属性值 注入给了属性，将属性 注入给了`bean`，将`bean`注入给了`ioc`容器；
 
 ​	
 **总结：**`ioc/di` ，无论要什么对象，都可以直接去`Springioc`容器中获取，而不需要自己操作`（new\setXxx()）`
@@ -73,6 +74,7 @@ IOC （超级工厂）
 </div>
 
 `DI`:依赖注入 ，
+
 `Teacher`  
 
 `Course`  :` cname ` `teacher`
@@ -80,7 +82,7 @@ IOC （超级工厂）
 `IOC`容器赋值：如果是简单类型（8个基本+`String`），`value`； 
 如果是对象类型，`ref`="需要引用的`id`值"，因此实现了 对象与对象之间的依赖关系
 
-`context.getBean`(需要获取的`bean`的`id`值)
+	`context.getBean`(需要获取的`bean`的`id`值)
 
 
 
@@ -104,6 +106,7 @@ IOC （超级工厂）
 
 **简单类型：**
 ​	`p:属性名="属性值"`
+
 **引用类型:**
 
 （除了`String`外）：
@@ -120,6 +123,7 @@ IOC （超级工厂）
 ​	注入各种集合数据类型: `List` ` Set` `map` `properties`
 
 `set`、`list`、数组   各自都有自己的标签<set> <list> <array>，但是也可以混着用。
+
 
 
 
@@ -140,6 +144,7 @@ IOC （超级工厂）
 
 
 
+
 **`value`与`<value>`注入方式的区别：**
 
  
@@ -153,6 +158,8 @@ IOC （超级工厂）
  
 
 其中，`XML`预定义的实体引用，如表所示。
+
+
 
 | 实体引用 | 表示的符号 |
 | -------- | ---------- |
