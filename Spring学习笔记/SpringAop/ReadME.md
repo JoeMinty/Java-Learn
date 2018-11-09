@@ -149,3 +149,87 @@ ServiceB.methodB(); //PROPAGATION_NESTED 级别
 **幻觉读:** 指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。
 
  
+
+### 六、AOP：面向方面编程
+
+一个普通的类	-->	有特定功能的类  
+
+- a.继承类  
+
+- b.实现接口  
+
+- c.注解  
+
+- d.配置
+
+```
+public class MyFilter exntends/implements Xx
+{
+
+}
+
+```
+
+
+
+
+类 --> "通知" ：实现接口
+
+#### 前置通知实现步骤：
+
+- `a.jar`
+  ​	`aopaliance.jar`
+  ​	`aspectjweaver.jar`
+
+- b.配置
+
+- c.编写
+  ​	`aop`：每当之前`add()`之前 自动执行一个方法`log()`;
+
+`addStudent();`  业务方法（`IStudentService.java`中的  `addStudent()`）
+`before()`;  自动执行的通知，即`aop`前置通知
+
+```
+public class Xxx
+{
+	@Test
+	a(){}
+}
+```
+
+
+
+如果出现异常：类似
+
+`java.lang.NoClassDefFoundError: org/apache/commons/pool/impl/GenericObjectPool`
+则说明缺少`jar`
+
+
+
+#### 后置通知：
+- a.通知类  ，普通实现接口
+- b.业务类、业务方法
+  ​	`StudentServiceImpl`中的`addStudent()`
+- c.配置：
+  ​	将业务类、通知 纳入`springIOC`容器
+  ​	定义切入点（一端）、定义通知类（另一端），通过`pointcut-ref`将两端连接起来
+
+
+
+#### 异常通知：
+根据异常通知接口的定义可以发现，异常通知的实现类 必须编写以下方法：
+
+```
+public void afterThrowing([Method, args, target], ThrowableSubclass)：
+a.public void afterThrowing(Method, args, target, ThrowableSubclass)
+b.public void afterThrowing( ThrowableSubclass)
+```
+
+
+
+#### 环绕通知： 
+
+在目标方法的前后、异常发生时、最终等各个地方都可以 进行的通知，最强大的一个通知；
+可以获取目标方法的 全部控制权（目标方法是否执行、执行之前、执行之后、参数、返回值等）
+
+在使用环绕通知时，目标方法的一切信息 都可以通过`invocation`参数获取到环绕通知 底层是通过拦截器实现的。
