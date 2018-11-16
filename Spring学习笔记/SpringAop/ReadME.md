@@ -60,6 +60,10 @@ public void addStudent()
 
 ### 三、用四个词来表示事务
 
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E7%89%A9.PNG" />
+</div>
+
 ​	在传统的软件开发中，人们创建了一个术语来描述事务：`ACID`。简单来说，`ACID`表示4个特性。
 
 
