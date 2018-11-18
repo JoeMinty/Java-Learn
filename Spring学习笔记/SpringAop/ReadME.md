@@ -255,6 +255,9 @@ public class Xxx
 
 ```
 public void afterThrowing([Method, args, target], ThrowableSubclass)：
+```
+
+```
 a.public void afterThrowing(Method, args, target, ThrowableSubclass)
 b.public void afterThrowing( ThrowableSubclass)
 ```
@@ -266,5 +269,62 @@ b.public void afterThrowing( ThrowableSubclass)
 在目标方法的前后、异常发生时、最终等各个地方都可以 进行的通知，最强大的一个通知；
 可以获取目标方法的 全部控制权（目标方法是否执行、执行之前、执行之后、参数、返回值等）
 
-在使用环绕通知时，目标方法的一切信息 都可以通过`invocation`参数获取到环绕通知 底层是通过拦截器实现的。
+在使用环绕通知时，目标方法的一切信息 都可以通过`invocation`参数获取到。
 
+环绕通知 底层是通过**拦截器**实现的。
+
+
+
+### 八、实现注解实现通知，aop
+
+
+
+- a.jar
+  ​	与 实现接口 的方式相同
+- b.配置
+  ​	将业务类、通知 纳入`SpringIOC`容器
+  ​	开启注解对`AOP`的支持`<aop:aspectj-autoproxy></aop:aspectj-autoproxy>`
+  ​	业务类 `addStudent` -  通知 
+- c.编写
+
+通知：
+
+```
+@Aspect  //声明该类 是一个 通知
+public class LogBeforeAnnotation  {
+
+}
+```
+
+**注意：**通过注解形式 将对象增加到 `IOC`容器时，需要设置 扫描器
+
+`<context:component-scan base-package="org.moons.aop"></context:component-scan>`
+
+**扫描器** 会将 指定的包 中的 `@cmponent` `@Service`  `@Respository`  ` @Controller`修饰的类产生的对象 增加到`IOC`容器中。
+
+`@Aspect`不需要 加入扫描器，只需要开启即可：`<aop:aspectj-autoproxy></aop:aspectj-autoproxy>`
+
+
+通过注解形式 实现的`aop`，如果想获取 目标对象的一些参数，则需要使用一个对象：`JoinPoint`
+
+
+
+#### **注解形式的返回值：**
+
+
+
+- a.声明返回值 的参数名：
+
+```
+@AfterReturning( pointcut= "execution(public * addStudent(..))" ,returning="returningValue" ) 
+
+public void myAfter(JoinPoint jp,Object returningValue) {
+//returningValue是返回值，但需要告诉spring
+System.out.println("返回值："+returningValue );
+}
+```
+
+注解形式实现`Aop`时，通知的方法的参数不能多、少
+
+实现接口形式、注解形式 只捕获声明的特定类型的异常，而其他类型异常不捕获。
+`cath()`
