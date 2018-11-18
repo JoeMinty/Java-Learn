@@ -184,7 +184,7 @@ try {
  
 
 
-### 七、AOP：面向方面编程
+### 七、AOP：面向方面编程(基于实现接口的方式)
 
 一个普通的类	-->	有特定功能的类  
 
@@ -279,7 +279,7 @@ b.public void afterThrowing( ThrowableSubclass)
 
 
 
-### 八、实现注解实现通知，aop
+### 八、基于注解方式实现AOP通知
 
 
 
@@ -304,7 +304,7 @@ public class LogBeforeAnnotation  {
 
 `<context:component-scan base-package="org.moons.aop"></context:component-scan>`
 
-**扫描器** 会将 指定的包 中的 `@cmponent` `@Service`  `@Respository`  ` @Controller`修饰的类产生的对象 增加到`IOC`容器中。
+**扫描器** 会将 指定的包 中的 `@Cmponent` `@Service`  `@Respository`  ` @Controller`修饰的类产生的对象 增加到`IOC`容器中。
 
 `@Aspect`不需要 加入扫描器，只需要开启即可：`<aop:aspectj-autoproxy></aop:aspectj-autoproxy>`
 
@@ -332,3 +332,43 @@ System.out.println("返回值："+returningValue );
 
 实现接口形式、注解形式 只捕获声明的特定类型的异常，而其他类型异常不捕获。
 `catch()`
+
+
+
+#### 表达式`expression`的常见示例如表所示。
+
+ 
+
+`expression="execution(…)"` 
+
+| 举例                                                         | 含义                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `public boolean addStudent(org.moons.entity.Student))`       | 所有返回类型为`boolean`、参数类型为`org.moons.entity.Student`的`addStudent()`方法。 |
+| `public boolean org.moons.service.IStudentService.addStudent(org.moons.entity.Student)` | `org.moons.service.IStudentService`类（或接口）中的`addStudent()`方法，并且返回类型是`boolean`、参数类型是`org.moons.entity.Student` |
+| `public * addStudent(org.moons.entity.Student)`              | `"*"`代表任意返回类型                                        |
+| `public void *( org.moons.entity.Student)`                   | "*"代表任意方法名                                            |
+| `public void addStudent(..)`                                 | `".."`代表任意参数列表                                       |
+| `* org.moons.service.*.*(..)`                                | `org.moons.service.IStudentService`包中，包含的所有方法（不包含子包中的方法） |
+| `* org.moons.service..*.*(..)`                               | `org.moons.service.IStudentService`包中，包含的所有方法（包含子包中的方法） |
+
+
+
+
+
+
+### 九、基于Schema配置的方式实现AOP通知
+类似与实现接口的方式
+
+接口方式通知：`public class LogAfter implements AfterReturningAdvice`
+`Schema`方式通知：
+
+- a.编写一个普通类  `public class LogAfter {}`  
+- b.将该类 通过配置，转为一个"通知"
+  ​	
+
+#### 如果要获取目标对象信息：
+**注解、`Schema`：**`JoinPoint`
+**接口：**`Method method, Object[] args, Object target`
+
+`Schema`形式 和注解形式相似，**不同之处：** 注解形式 使用了注册`@After`，  `Schmema`形式进行了多余的配置
+
