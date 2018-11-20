@@ -10,9 +10,9 @@ Java只有值传递
 
 **Java中的八种基本数据类型：**
 
-Java语言提供了八种基本类型。六种数字类型（四个整数型（默认是int 型），两个浮点型（默认是double 型）），一种字符类型，还有一种布尔型。
+Java语言提供了八种基本类型。六种数字类型（四个整数型（默认是`int` 型），两个浮点型（默认是`double` 型）），一种字符类型，还有一种布尔型。
 
-`byte`、`short`、`in`t、`long`、`float`、`double`、`boolean`、`char`
+`byte`、`short`、`int`、`long`、`float`、`double`、`boolean`、`char`
 
 #### **实例1:**
 
