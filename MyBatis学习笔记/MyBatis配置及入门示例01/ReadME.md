@@ -82,12 +82,12 @@ Process finished with exit code 1
 ```
 <build>
         <resource>
-                <directory>src/main/java</directory>
+             <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
             </resource>
         </resources>
-    </build>
+</build>
 ```
 
