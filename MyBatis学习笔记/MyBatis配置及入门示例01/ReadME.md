@@ -8,14 +8,14 @@
 #### MyBatis简单概念以及使用
 
 `MyBatis:`
-	`ibatis:Apache`
-	`2010 ibatis-> google colde ,Mybatis`
+​	`ibatis:Apache`
+​	`2010 ibatis-> google colde ,Mybatis`
 
 `MyBatis`可以简化`JDBC`操作，实现数据的持久化 。
-	
+​	
 
 `ORM:Object Relational Mapping`
-	    `person`对象   `person`表
+​	    `person`对象   `person`表
 
 `ORM`：概念 
 `MyBatis`是`ORM`的一个实现/`Hibernate` 
