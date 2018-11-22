@@ -29,6 +29,11 @@
 测试类：
 `session.selectOne("需要查询的SQL的namespace.id","SQL的参数值");`
 
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/orm%E8%A1%A8%E4%B8%8E%E5%AF%B9%E8%B1%A1%E6%98%A0%E5%B0%84.png" />
+</div>
+
+
 
 
 #### 建表语句
