@@ -4,17 +4,18 @@
 
 
 
+
 #### MyBatis简单概念以及使用
 
 `MyBatis:`
-​	`ibatis:Apache`
-​	`2010 ibatis-> google colde ,Mybatis`
+	`ibatis:Apache`
+	`2010 ibatis-> google colde ,Mybatis`
 
 `MyBatis`可以简化`JDBC`操作，实现数据的持久化 。
-​	
+	
 
 `ORM:Object Relational Mapping`
-​	    `person`对象   `person`表
+	    `person`对象   `person`表
 
 `ORM`：概念 
 `MyBatis`是`ORM`的一个实现/`Hibernate` 
@@ -23,10 +24,15 @@
 开发`MyBatis`程序从步骤：
 
 1.配置`MyBatis`
+
 `conf.xml:`配置数据库信息 和 需要加载的映射文件
+
 表 - 类
+
 映射文件`xxMapper.xml`  :增删改查标签<select>
+
 测试类：
+
 `session.selectOne("需要查询的SQL的namespace.id","SQL的参数值");`
 
 <div align="center">
@@ -58,7 +64,6 @@ Exception in thread "main" java.io.IOException: Could not find resource conf.xml
 	at org.moons.entity.TestMyBatis.main(TestMyBatis.java:15)
 
 Process finished with exit code 1
-
 ```
 
 **原因：**
