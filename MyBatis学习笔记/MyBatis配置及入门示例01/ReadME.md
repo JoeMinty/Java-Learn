@@ -1,21 +1,15 @@
-
-
 ### MyBatis配置及入门示例
-
-
-
 
 #### MyBatis简单概念以及使用
 
 `MyBatis:`
-​	`ibatis:Apache`
-​	`2010 ibatis-> google colde ,Mybatis`
+	`ibatis:Apache`
+	`2010 ibatis-> google colde ,Mybatis`
 
 `MyBatis`可以简化`JDBC`操作，实现数据的持久化 。
-​	
 
 `ORM:Object Relational Mapping`
-​	    `person`对象   `person`表
+	`person`对象   `person`表
 
 `ORM`：概念 
 `MyBatis`是`ORM`的一个实现/`Hibernate` 
@@ -23,21 +17,23 @@
 
 开发`MyBatis`程序从步骤：
 
-1.配置`MyBatis`
+配置`MyBatis`
 
 `conf.xml:`配置数据库信息 和 需要加载的映射文件
 
 表 - 类
 
-映射文件`xxMapper.xml`  :增删改查标签<select>
+映射文件`xxMapper.xml`  :增删改查标签
 
 测试类：
 
-`session.selectOne("需要查询的SQL的namespace.id","SQL的参数值");`
+```
+session.selectOne("需要查询的SQL的namespace.id","SQL的参数值");
+```
 
-
-
-
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/orm%E8%A1%A8%E4%B8%8E%E5%AF%B9%E8%B1%A1%E6%98%A0%E5%B0%84.png" />
+</div>
 
 
 #### 建表语句
@@ -85,7 +81,7 @@ Process finished with exit code 1
 
 ```
 <build>
-            <resource>
+        <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
