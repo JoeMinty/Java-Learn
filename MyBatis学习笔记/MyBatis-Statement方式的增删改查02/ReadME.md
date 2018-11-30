@@ -1,12 +1,12 @@
 # `MyBatis`基础方式的`CRUD`
 
-### 复习第一个`MyBatis`配置及入门示例01：
+## 复习第一个`MyBatis`配置及入门示例01：
 
 - 0、`mybatis.jar`   `ojdbc.jar`
 - 1、`conf.xml` (数据库配置信息、映射文件)
 - 2、表-类：映射文件  `mapper.xml`
 - 3、测试
-
+##  一、基础方式的增删改查CRUD:
 ### `MyBatis`约定：
 输入参数`parameterType` 和 输出参数`resultType `，在形式上都只能有一个
 
@@ -21,6 +21,11 @@
 
 
 
-### 注意事项：
-如果使用的 事务方式为 `jdbc`,则需要手工`commit`提交，即`session.commit();`
+## 注意事项：
+a、如果使用的 事务方式为 `jdbc`,则需要手工`commit`提交，即`session.commit();`
 
+b、`select* from student  where stuno = #{xx}`
+
+c、`sql`有参数：`session.insert(statement, 参数值 );`
+
+d、`sql`没参数：`session.insert(statement);`
