@@ -62,7 +62,9 @@ k=v
 除了自定义别名外，`MyBatis`还内置了一些常见类的别名。
 
 
-
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/MyBatis%E5%86%85%E7%BD%AE%E5%88%AB%E5%90%8D.png" />
+</div>
 
 
 
@@ -71,7 +73,7 @@ k=v
 ### 1、`MyBatis`自带一些常见的类型处理器
 	int  - number
 
-​	
+	
 **Mybatis内置的类型处理器如表所示。**
 
 | 类型处理器              | Java类型              | JDBC类型                                                    |
@@ -117,6 +119,12 @@ k=v
 ​	0：女
 ​	```
 ​	
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%99%A8%E7%9A%84%E6%96%B9%E5%90%91.png" />
+</div>
+
+
 ### 自定义类型转换器`（boolean -number）`步骤：
 #### a.创建转换器：需要实现`TypeHandler`接口
 通过阅读源码发现，此接口有一个实现类 `BaseTypeHandler` ，因此 要实现转换器有2种选择：
