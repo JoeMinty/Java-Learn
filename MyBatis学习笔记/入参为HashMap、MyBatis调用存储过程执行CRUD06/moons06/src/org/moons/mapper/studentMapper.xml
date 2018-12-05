@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:该mapper.xml映射文件的 唯一标识 -->
+<mapper namespace="org.moons.mapper.StudentMapper">
+	<!--  后续通过  namespace.id-->
+	<!--parameterType:输入参数的类型
+	resultType：查询返回结果值的类型  ，返回类型  -->
+	
+	
+	<select id="queryStudentByStuno" 	parameterType="int"  	resultMap="studentMapping" >
+		select * from student where stuno = ${stuNo}
+	</select>
+	
+	<select id="queryStudentByStuname" 	parameterType="string"  	resultType="student" >
+		select stuno,stuname,stuage  from student where stuname = '${value}'
+	</select>
+	
+	<select id="queryStudentOrderByColumn" 	parameterType="string"	resultType="student" >
+		select stuno,stuname,stuage  from student  order by ${value} asc
+	</select>
+	
+		
+	<select id="queryStudentBystuageOrstuName" 	parameterType="student"	resultType="student" > 
+		select stuno,stuname,stuage  from student
+		where stuage= #{stuAge}  or stuname like '%${stuName}%' 
+	</select>
+	
+	<select id="queryStudentBystuageOrstuNameWithHashMap" 	parameterType="HashMap"	resultType="student" > 
+		select stuno,stuname,stuage  from student
+		where stuage= #{stuAge}  or stuname like '%${stuName}%' 
+	</select>
+	
+	<!-- 
+	<select id="queryStudentByaddress" 	parameterType="address"	resultType="student" > 
+		select stuno,stuname,stuage  from student where homeaddress = #{homeAddress}  or schooladdress = '${schoolAddress}'
+	</select>
+	 -->
+	<!-- 输入参数为 级联属性 -->
+	<select id="queryStudentByaddress" 	parameterType="student"	resultType="student" > 
+		select stuno,stuname,stuage  from student where homeaddress = #{address.homeAddress}  or schooladdress = '${address.schoolAddress}'
+	</select>
+	
+	<resultMap type="student" id="studentMapping">
+			<!-- 分为主键id 和非主键 result-->
+			<id property="stuNo"  column="stuno"  />
+			<result property="stuName"  column="stuname" />
+			<result property="stuAge"  column="stuage" />
+			<result property="graName"  column="graname" />
+			<result property="stuSex"  column="stusex"  javaType="boolean" jdbcType="INTEGER"/>
+	
+	
+	</resultMap>
+	
+	
+	 
+	
+	<!-- 查询：使用了类型转换器
+	1如果 类中属性 和表中的字段 类型能够合理识别 （String-varchar2），则可以使用resultType;否则(boolean-number) 使用resultMap
+	2如果 类中属性名 和表中的字段名能够合理识别 （stuNo -stuno）则可以使用resultType;否则(id-stuno) 使用resultMap
+	 -->
+	<select id="queryStudentByStunoWithConverter" 	parameterType="int"  	
+	resultMap="studentResult" >
+		select * from student where stuno = #{stuno}
+	</select>
+	
+	<resultMap type="student" id="studentResult">
+			<!-- 分为主键id 和非主键 result-->
+			<id property="stuNo"  column="stuno"  />
+			<result property="stuName"  column="stuname" />
+			<result property="stuAge"  column="stuage" />
+			<result property="graName"  column="graname" />
+			<result property="stuSex"  column="stusex"  javaType="boolean" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	
+	<!-- 带转换器的增加 -->
+	<insert id="addStudentWithConverter" parameterType="student" >
+		insert into student(stuno,stuname,stuage,graname,stusex) values(#{stuNo},#{stuName},#{stuAge},#{graName} ,#{stuSex ,javaType=boolean  ,jdbcType=INTEGER   } ) 
+	</insert>
+	
+	
+	<insert id="addStudent" parameterType="student" >
+		insert into student(stuno,stuname,stuage,graname) values(#{stuNo},#{stuName},#{stuAge},#{graName}  ) 
+	</insert>
+	
+	
+	<delete id="deleteStudentByStuno"  parameterType="int">
+		delete from student where stuno = #{stuno} 
+	</delete>
+	
+	<update id="updateStudentByStuno" parameterType="student" >
+		update student set stuname=#{stuName} ,stuage=#{stuAge},graname=#{graName} where stuno=#{stuNo} 
+	</update>
+	
+	<select id="queryAllStudents"  resultType="sTuDenT" >
+		select * from student 
+	</select>
+
+	
+	<!-- 通过调用[存储过程] 实现查询 ,statementType="CALLABLE"
+		存储过程的输入参数，在mybatis用Map来传递（HashMap）
+	-->
+	<select id="queryCountByGradeWithProcedure" statementType="CALLABLE"  parameterType="HashMap" >
+		{
+			CALL queryCountByGradeWithProcedure(
+				#{gName,jdbcType=VARCHAR,mode=IN},
+				#{scount,jdbcType=INTEGER,mode=OUT}
+			) 
+		}	
+	</select>
+	
+	<!-- 通过存储过程实现删除 -->
+	<delete id="deleteStuBynoWithProcedure" statementType="CALLABLE" parameterType="HashMap">
+		{
+			CALL deleteStuBynoWithProcedure(
+				#{sno,jdbcType=INTEGER,mode=IN}
+			) 
+		}	
+	</delete>
+	
+	
+	
+</mapper>
