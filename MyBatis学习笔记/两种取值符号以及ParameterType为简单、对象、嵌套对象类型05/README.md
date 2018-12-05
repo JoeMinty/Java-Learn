@@ -5,7 +5,7 @@
 #### `#{}、${}`的区别
 a、
 
-#{任意值}
+`#{任意值}`
 
 `${value}` ，其中的标识符只能是`value`
 
@@ -29,6 +29,7 @@ select stuno,stuname,stuage  from student  order by ${value} asc
 ```
 
 c、
+
 `#{}`可以防止`SQL`注入
 
 `${}`不防止
