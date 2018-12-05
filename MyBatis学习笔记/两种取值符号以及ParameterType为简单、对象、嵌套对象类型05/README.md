@@ -1,10 +1,11 @@
 # 两种取值符号以及ParameterType为简单、对象、嵌套对象类型
 
-输入参数：`parameterType`
+**输入参数：`parameterType`**
 ### 1、类型为简单类型（8个基本类型+`String`）
 #### `#{}、${}`的区别
 a、
 #{任意值}
+
 `${value}` ，其中的标识符只能是`value`
 
 b、
@@ -27,6 +28,7 @@ select stuno,stuname,stuage  from student  order by ${value} asc
 
 c、
 `#{}`可以防止`SQL`注入
+
 `${}`不防止
 
 
@@ -62,4 +64,5 @@ ii.嵌套类型对象
 ### 2.对象类型
 
 `#{属性名}`
+
 `${属性名}`
