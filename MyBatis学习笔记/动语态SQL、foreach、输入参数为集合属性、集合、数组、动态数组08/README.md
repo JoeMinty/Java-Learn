@@ -42,6 +42,7 @@ select stuno,stuname from student where  stuname = #{stuName} and  stuage = #{st
 
 
 **`<foreach>`**
+
 查询学号为1、2、53的学生信息
 
 ```
@@ -74,14 +75,17 @@ select stuno,stuname from student  where stuno in (1,2,53)
 ```
 
 **简单类型的数组:**
+
 无论编写代码时，传递的是什么参数名`(stuNos)`，在`mapper.xml`中 必须用`array`代替该数组
 
 
 **集合：**
+
 无论编写代码时，传递的是什么参数名`(stuNos)`，在`mapper.xml`中 必须用`list`代替该数组
 
 
 **对象数组：**
+
 `Student[] students = {student0,student1,student2}`  每个`student`包含一个学号属性
 
 **注意的几点：**
