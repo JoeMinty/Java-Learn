@@ -110,6 +110,24 @@ parameterType="Object[]"
 - a、提取相似代码
 - b、引用
 
+**关联查询：**
+
+一对一:
+- a.业务扩展类
+核心：用`resultType`指定类的属性包含多表查询的所有字段
+	
+- b.`resultMap`
+
+一对多:
+
+（`MyBatis`:多对一，多对多的本质就是  一对多的变化）
+
+
+
 **代码：**
 
 https://github.com/ZP-AlwaysWin/Java-Learn/tree/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0%E4%B8%BA%E7%AE%80%E5%8D%95%E7%B1%BB%E5%9E%8B%E3%80%81%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B%E3%80%81HashMap%E5%8F%8AresultMap%E4%BD%BF%E7%94%A807/moon07
+
+
+
+
