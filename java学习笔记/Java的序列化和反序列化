@@ -122,6 +122,28 @@ name:moons	age:24
 
 
 
+**注意：**
+
+
+
+如果序列中的属性包括对象属性，需要如下处理。
+
+```
+class Person implements Serializable {
+	...
+    String name;
+    int age;
+    Dog dog; //其中Dog是一个类，那么如果想要实例化Dog这个属性，则需要让Dog这个类也实现Serializable接口
+
+    public Dog getDog() {
+        return dog;
+    }
+    ...
+}
+```
+
+
+
 ### serialVersionUID
 
 注意到上面程序中有一个 `serialVersionUID` ，实现了`Serializable`接口之后，程序就会提示你增加一个 `serialVersionUID`，虽然不加的话上述程序依然能够正常运行。
