@@ -33,6 +33,7 @@ abc.xml
 ### 具体实现的步骤：
 
 1、基础环境：`mybatis.jar/ojdbc.jar、conf.xml、mapper.xml`
+
 2、（不同之处）
 ​	约定的目标： 省略掉`statement`,即根据约定 直接可以定位出`SQL`语句
 #### a.接口，接口中的方法必须遵循以下约定：
