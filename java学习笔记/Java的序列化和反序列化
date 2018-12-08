@@ -299,9 +299,7 @@ private static final long serialVersionUID = -5809782578272943999L;
 ### transient使用小结
 
 - 一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。
-
 - transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。
-
 - 被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。
 
 第三点可能有些人很迷惑，因为发现在`Person`类中的`name`字段前加上`static`关键字后，程序运行结果依然不变，即`static`类型的`name`也读出来为“moons”了，这不与第三点说的矛盾吗？实际上是这样的：第三点确实没错（一个静态变量不管是否被`transient`修饰，均不能被序列化），反序列化后类中`static`型变量`name`的值为当前`JVM`中对应`static`变量的值，这个值是`JVM`中的不是反序列化得出的，下面我来简单证明下：
@@ -469,11 +467,11 @@ public class ExternalizableTest implements Externalizable {
 
 `content`变量会被序列化吗？好吧，我把答案都输出来了，是的，运行结果就是：
 
----
+------
 
 是的，我将会被序列化，不管我是否被transient关键字修饰
 
-----
+------
 
 这是为什么呢，不是说类的变量被`transient`关键字修饰以后将不能序列化了吗？
 
