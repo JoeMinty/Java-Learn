@@ -30,7 +30,7 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
 `DEBUG<INFO<WARN<ERROR`
 如果设置为`info`，则只显示`info`及以上级别的信息；
 
-**建议：**在开发时设置`debug`，在运行时设置为`info`或以上。
+**建议** 在开发时设置`debug`，在运行时设置为`info`或以上。
 
 
 可以通过日志信息，相信的阅读`mybatis`执行情况（ 观察`mybatis`实际执行`sql`语句 以及`SQL`中的参数 和返回结果）
