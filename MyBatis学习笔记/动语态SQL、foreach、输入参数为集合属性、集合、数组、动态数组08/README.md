@@ -19,7 +19,7 @@ select stuno,stuname from student where  stuname = #{stuName} and  stuage = #{st
 
 
 
-**`<where>`**
+## `<where>`
 
 ```
 <select id="queryStuByNOrAWishSQLTag" parameterType="student"	resultType="student" >
@@ -41,7 +41,7 @@ select stuno,stuname from student where  stuname = #{stuName} and  stuage = #{st
 
 
 
-**`<foreach>`**
+## `<foreach>`
 
 查询学号为1、2、53的学生信息
 
@@ -87,7 +87,6 @@ select stuno,stuname from student  where stuno in (1,2,53)
 
 无论编写代码时，传递的是什么参数名`(stuNos)`，在`mapper.xml`中 必须用`list`代替该数组
 
-
 **对象数组：**
 
 `Student[] students = {student0,student1,student2}`  每个`student`包含一个学号属性
@@ -105,20 +104,55 @@ parameterType="Object[]"
 `SQL`片段：
 ​	java：方法
 ​	数据库：存储过程、存储函数
-​	Mybatis :SQL片段 
+​	`Mybatis` :`SQL`片段 
 
 - a、提取相似代码
 - b、引用
 
-**关联查询：**
+## 关联查询：
 
-一对一:
+###  一对一:
 - a.业务扩展类
 核心：用`resultType`指定类的属性包含多表查询的所有字段
 	
 - b.`resultMap`
 
-一对多:
+1、通过 属性成员 将2个类建立起联系
+2、
+
+```
+<resultMap type="student" id="student_card_map">
+			<!-- 学生的信息 -->
+			<id  property="stuNo" column="stuNo"/>
+			<result property="stuName" column="stuName" />
+			<result property="stuAge" column="stuAge" />
+			<!-- 一对一时，对象成员使用 association映射;javaType指定该属性的类型-->
+			<association property="card" javaType="StudentCard" >
+					<id property="cardId" column="cardId"/>
+					<result property="cardInfo" column="cardInfo"/>
+			</association>
+			
+	</resultMap>
+```
+
+一对一：`association`
+一对多：`collection`
+
+
+
+### 一对多:
+
+表：`student studentclass`  (关联：`classid`)
+类：`student studentClas`  (关联：`List<Student> students` )
+
+
+
+
+```
+select  c.*,s.* from student s inner join studentclass c  on c.classid = s.classid where c.classid = 1;
+```
+
+一对多
 
 （`MyBatis`:多对一，多对多的本质就是  一对多的变化）
 
