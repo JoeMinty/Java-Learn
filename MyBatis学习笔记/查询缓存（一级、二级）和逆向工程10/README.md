@@ -11,9 +11,14 @@
 `MyBatis`默认开启一级缓存，如果用同样的`SqlSession`对象查询相同的数据，则只会在第一次查询时向数据库发送`SQL`语句，并将查询的结果 放入到`SQLSESSION`中（作为缓存在）；
 后续再次查询该同样的对象时，则直接从缓存中查询该对象即可（即省略了数据库的访问）	
 
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98.png" />
+</div>
+
 
 
 ### 二级缓存
+
 
 `MyBatis`默认情况没有开启二级缓存，需要手工打开。
 
@@ -91,6 +96,7 @@ b、 在`select`标签中 增加属性 `flushCache="true"`
 
 
 **命中率：**
+
 1:zs :		0%  
 
 2:    		50%
@@ -98,6 +104,10 @@ b、 在`select`标签中 增加属性 `flushCache="true"`
 3: 2/3  	0.666
 
 4: 3/4  	0.75
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98.png" />
+</div>
 
 
 
@@ -143,3 +153,7 @@ a.  mybatis-generator-core.jar、mybatis.jar、ojdbc.jar
 b.  逆向工程的配置文件generator.xml
 c.  执行
 ```
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
