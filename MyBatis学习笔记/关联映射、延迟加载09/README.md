@@ -39,7 +39,9 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
 ## 延迟加载（懒加载）：
 
 一对一、一对多、多对一、多对多
+
 一对多：班级-学生 ，
+
 如果不采用延迟加载  （立即加载），查询时会将 一 和多 都查询，班级、班级中的所有学生。
 如果想要  暂时只查询1的一方，  而多的一方 先不查询 而是在需要的时候再去查询 -->延迟加载
 
@@ -99,12 +101,15 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
 
 学生`mapper.xml`
 
+
 ```
 <!-- 一对多,延迟加载需要的： 查询班级中的所有学生 -->
 <select id="queryStudentsByClassId" parameterType="int" resultType="student">
 	select * from student where classId = #{classId}
 </select>	
 ```
+
+**延迟加载对比图**
 
 <div align="center">
 <img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E5%AF%B9%E6%AF%94.png" />
