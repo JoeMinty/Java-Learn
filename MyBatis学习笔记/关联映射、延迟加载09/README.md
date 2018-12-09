@@ -3,6 +3,7 @@
 ## 日志：`Log4j`
 
 a、`Log4j:	log4j.jar (mybatis.zip中lib中包含此jar)`
+
 b、开启日志，`conf.xml`
 
 ```
@@ -104,3 +105,7 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
 	select * from student where classId = #{classId}
 </select>	
 ```
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E5%AF%B9%E6%AF%94.png" />
+</div>
