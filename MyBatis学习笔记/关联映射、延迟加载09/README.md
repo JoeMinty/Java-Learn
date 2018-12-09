@@ -69,20 +69,29 @@ log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
 
 班级`mapper.xml`
 
-```
-<select id="queryClassAndStudents"   resultMap="class_student_lazyLoad_map">
-select  c.* from studentclass c
-</select>		
 
+```
+  	<!-- 一对多，带延迟加载 -->
+	<select id="queryClassAndStudents"   resultMap="class_student_lazyLoad_map">
+		<!-- 11111111先查询班级 -->
+		select  c.* from studentclass c
+	</select>
+	 
+<!-- 类-表的对应关系 -->
 <resultMap type="studentClass" id="class_student_lazyLoad_map">
 			<!-- 因为 type的主类是班级，因此先配置班级的信息-->
 			<id  property="classId" column="classId"/>
 			<result  property="className" column="className"/>
-	<!-- 配置成员属性学生，一对多;属性类型：javaType，属性的元素类型ofType -->
-	<!-- 2222222再查班级对应的学生 -->
-	<collection property="students" ofType="student" select="org.moons.mapper.StudentMapper.queryStudentsByClassId" column="classid">
-	</collection>
+			<!-- 配置成员属性学生，一对多;属性类型：javaType，属性的元素类型ofType -->
+			<!-- 2222222再查班级对应的学生 -->
+			<collection property="students" ofType="student" select="org.moons.mapper.StudentMapper.queryStudentsByClassId" column="classid">
+				<!-- <id  property="stuNo" column="stuNo"/>
+				<result  property="stuName" column="stuName"/>
+				<result  property="stuAge" column="stuAge"/>
+				 -->
+			</collection>
 </resultMap>
+	
 ```
 
 即查询 学生的`sql`是通过`select`属性指定，并且通过`column`指定外键
