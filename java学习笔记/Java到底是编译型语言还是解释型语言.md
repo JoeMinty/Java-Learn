@@ -19,7 +19,7 @@
 
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%AD%A6%E4%B9%A0%E5%9B%BE%E7%89%87/java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%20.png" />
 </div>
 
 
@@ -27,7 +27,7 @@
 ## (2)java的虚拟机 
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%AD%A6%E4%B9%A0%E5%9B%BE%E7%89%87/java%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%20.png" />
 </div>
 
 
