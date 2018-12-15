@@ -55,6 +55,143 @@ java hello
 所以我们应该这样来定位`PyCodeObject`和`pyc`文件，我们说`pyc`文件其实是`PyCodeObject`的一种持久化保存方式。
 
 
-## 5. 参考文档
+
+## 5. 运行一段Python程序
+
+
+
+我们来写一段程序实际运行一下
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+程序本身毫无意义。我们继续看：
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+然而我们在程序中并没有看到`pyc`文件，仍然是`test.py`孤零零地呆在那！
+
+那么我们换一种写法，我们把`print_str`方法换到另外的一个`python`模块中：
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+然后运行程序：
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+这个时候`pyc`文件出现了，其实认真思考一下不难得到原因，我们考虑一下实际的业务情况。
+
+
+
+## 6. `pyc`的目的是重用
+
+回想本文的第二段在解释编译型语言和解释型语言的优缺点时，我说编译型语言的优点在于，我们可以在程序运行时不用解释，而直接利用已经“翻译”过的文件。也就是说，我们之所以要把`py`文件编译成`pyc`文件，最大的优点在于我们在运行程序时，不需要重新对该模块进行重新的解释。
+
+所以，我们需要编译成`pyc`文件的应该是那些可以重用的模块，这于我们在设计软件类时是一样的目的。所以`Python`的解释器认为：只有`import`进来的模块，才是需要被重用的模块。
+
+这个时候也许有人会说，不对啊！你的这个问题没有被解释通啊，我的`est.py`不是也需要运行么，虽然不是一个模块，但是以后我每次运行也可以节省时间啊！
+
+OK，我们从实际情况出发，思考下我们在什么时候才可能运行`python xxx.py`文件：
+
+- A. 执行测试时。
+
+- B. 开启一个`Web`进程时。
+
+- C. 执行一个程序脚本。
+
+
+
+我们逐个来说，
+
+- 第一种情况我们就不用多说了，这个时候哪怕所有的文件都没有`pyc`文件都是无所谓的。
+
+- 第二种情况，我们试想一个`webpy`的程序把，我们通常把它执行起来之后，这个程序就类似于一个守护进程一样一直监视着8181/9002端口，而一旦中断，只可能是程序被杀死，或者其他的意外情况，那么你需要恢复要做的是把整个的Web服务重启。那么既然一直监视着，把`PyCodeObject`一直放在内存中就足够了，完全没必要持久化到硬盘上。
+
+- 最后一个情况，执行一个程序脚本，一个程序的主入口其实很类似于`Web`程序中的`Controlle`r，也就是说，他负责的应该是`Model`之间的调度，而不包含任何的主逻辑在内，`Controller`应该就是一个`Facade`，无任何的细节逻辑，只是把参数转来转去而已，那么如果做算法的同学可以知道，在一段算法脚本中，最容易改变的就是算法的各个参数，那么这个时候给持久化成`pyc`文件就未免有些画蛇添足了。
+
+
+
+  所以我们可以这样理解`Python`解释器的意图，`Python`解释器只把我们可能重用到的模块持久化成`pyc`文件。
+
+
+
+## 7. `pyc`的过期时间
+
+
+
+说完了`pyc`文件，可能有人会想到，每次`Python`的解释器都把模块给持久化成了`pyc`文件，那么当我的模块发生了改变的时候，是不是都要手动地把以前的`pyc`文件`remove`掉呢？
+
+当然`Python`的设计者是不会犯这么白痴的错误的。而这个过程其实就取决于`PyCodeObject`是如何写入`py`c文件中的。
+
+我们来看一下`import`过程的源码吧：
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+
+
+这段代码比较长，我们只来看我标注了的代码，其实他在写入`pyc`文件的时候，写了一个`Long`型变量，变量的内容则是文件的最近修改日期，同理，我们再看下载入`pyc`的代码：
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+不用仔细看代码，我们可以很清楚地看到原理，其实每次在载入之前都会先检查一下`py`文件和`pyc`文件保存的最后修改日期，如果不一致则重新生成一份`pyc`文件。
+
+
+
+## 8. 写在最后
+
+
+
+其实了解`Python`程序的执行过程对于大部分程序员，包括`Python`程序员来说意义都是不大的，那么真正有意义的是，我们可以从`Python`的解释器的做法上学到什么，我认为有这样的几点：
+
+
+
+- A. 其实`Python`是否保存成`pyc`文件和我们在设计缓存系统时是一样的，我们可以仔细想想，到底什么是值得扔在缓存里的，什么是不值得扔在缓存里的。
+
+- B. 在跑一个耗时的`Python`脚本时，我们如何能够稍微压榨一些程序的运行时间，就是将模块从主模块分开。（虽然往往这都不是瓶颈）
+
+- C. 在设计一个软件系统时，重用和非重用的东西是不是也应该分开来对待，这是软件设计原则的重要部分。
+
+- D. 在设计缓存系统（或者其他系统）时，我们如何来避免程序的过期，其实`Python`的解释器也为我们提供了一个特别常见而且有效的解决方案。
+
+
+
+## 9. 参考文档
 
 http://www.cnblogs.com/kym/archive/2012/05/14/2498728.html
