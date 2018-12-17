@@ -52,3 +52,61 @@
 <img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%9A%84%E5%9B%BE%E7%89%87/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BA%94%E7%94%A8.PNG" />
 </div>
 
+
+
+
+## `JUC`之`CountDownLatch`倒计时锁
+
+
+
+### `CountDownLatch`-倒计时锁
+
+
+
+- `CountDownLatch`倒计时锁特别适合“总-分任务”，例如多线程计算后的数据汇总
+- `CountDownLatch`类位于`java.util.concurrent(J.U.C)`包下，利用它可以实现类似计数器的功能。比如有一个任务`A`，它要等待其他三个任务执行完毕之后才能执行，此时就可以利用`CountDownLatch`来实现这种功能了。
+
+
+
+### `CountDownLatch`执行原理
+
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+## `JCU`之`Semaphore`信号量
+
+
+
+- `Semaphore`信号量经常用于限制获取某种资源的线程数量。下面举个例子，比如说跑到上有五个跑道，一个跑道一次只能有一个学生在上面跑步，一旦所有跑道都在使用，那么后面的学生就需要等待，知道有一个学生不跑了。
+
+
+
+## `JCU`之`CyclicBarrier`循环屏障
+
+
+
+### `CyclicBarrier`循环屏障
+
+
+
+- `CyclicBarrier`是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与`CountDownLatch`不同的是该`barrier`在释放等待线程厚可以重用，所以称它为循环`(Cyclic)`的屏障`(Barrier)`。
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+### `CyclicBarrier`的应用场景
+
+
+
+- `CyclicBarrier`适用于多线程必须同时开始的场景
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>

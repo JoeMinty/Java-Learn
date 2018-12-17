@@ -18,7 +18,6 @@ public class Main {
     public void setI(int i) {
         this.i = i;
     }
-    private Lock lock=new ReentrantLock();
     
     public  void incr(){
         i++;
