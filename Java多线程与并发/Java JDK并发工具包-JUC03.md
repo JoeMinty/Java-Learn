@@ -110,3 +110,55 @@
 <div align="center">
 <img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91%E7%9A%84%E5%9B%BE%E7%89%87/CyclicBarrier%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.PNG" />
 </div>
+
+
+
+
+## `JUC`之`ReentrantLock`重入锁
+
+
+
+### 什么是重入锁
+
+
+
+- 重入锁是指任意线程在获取到锁之后，再次获取该锁而不会被该锁所阻塞
+- `ReentrantLock`设计的目标是用来替代`synchronized`关键字
+
+
+
+### `ReentrantLock`与`synchronized`的区别
+
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+## `JUC`之`ReentrantLock`重入锁
+
+
+
+### `Condition`条件唤醒
+
+
+
+- 我们在并行程序中，避免不了某些线程要按预先规定好的顺序执行，例如：先新增再修改，先买后卖，先进后出......，对于这类场景，使用`JUC`的`Condition`对象再合适不过了。
+- `JUC`中提供了`Condition`对象，用于让指定线程等待与唤醒，按预期顺序执行。它必须和`ReentrantLock`重入锁配合使用。
+- `Condition`用于替代`wait()/notify()`方法
+  - `notufy`只能在同步代码块中执行，而`Condition`可以唤醒指定的线程，这有利于更好的控制并发程序。
+
+
+
+### `Condition`核心方法
+
+
+
+- `await()`- 阻塞当前线程，直到`singal`唤醒
+- `signal()`- 唤醒被`await`的线程，从中断处继续执行
+- `signalAll()` - 唤醒所有被`await()`阻塞的线程
+
+
+
