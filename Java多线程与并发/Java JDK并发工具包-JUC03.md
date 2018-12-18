@@ -137,7 +137,7 @@
 
 
 
-## `JUC`之`ReentrantLock`重入锁
+## `JUC`之`Condition`线程等待与唤醒
 
 
 
@@ -148,7 +148,7 @@
 - 我们在并行程序中，避免不了某些线程要按预先规定好的顺序执行，例如：先新增再修改，先买后卖，先进后出......，对于这类场景，使用`JUC`的`Condition`对象再合适不过了。
 - `JUC`中提供了`Condition`对象，用于让指定线程等待与唤醒，按预期顺序执行。它必须和`ReentrantLock`重入锁配合使用。
 - `Condition`用于替代`wait()/notify()`方法
-  - `notufy`只能在同步代码块中执行，而`Condition`可以唤醒指定的线程，这有利于更好的控制并发程序。
+  - `notify`只能在同步代码块中执行，而`Condition`可以唤醒指定的线程，这有利于更好的控制并发程序。
 
 
 
@@ -159,6 +159,124 @@
 - `await()`- 阻塞当前线程，直到`singal`唤醒
 - `signal()`- 唤醒被`await`的线程，从中断处继续执行
 - `signalAll()` - 唤醒所有被`await()`阻塞的线程
+
+
+
+## `JUC`之`Callable&Future`
+
+
+
+### `Callable&Future`
+
+
+
+- `Callable`和`Runnable`一样代表着任务，区别在于`Callable`有返回值并且可以抛出异常。
+- `Future`是一个接口。它用于表示异步计算的结果。提供了检查计算是否完成的方法，以等待计算的完成，并获取计算的结果。
+
+
+
+## `JUC`之同步容器
+
+
+
+### 请写出线程安全的类
+
+
+
+- `Vector`是线程安全的，`ArrayList`、`LinkedList`是线程不安全的
+- `Properties`是线程安全的，`HashSet`、`TreeSet`是不安全的
+- `StringBuffer`是线程安全的，`StringBuilder`是线程不安全的
+- `HashTable`是线程安全的，`HashMap`是线程不安全的
+
+
+
+### 线程安全-并发容器
+
+
+
+- `ArrayList` -->`CopyOnWriteArrayList`--写复制列表
+- `HashSet`--> `CopyOnWriteArraySet` --写复制集合
+- `HashMap` --> `ConcurrentHashMap` -- 分段锁映射
+
+
+
+### `CopyOnWriteArrayList`并发原理
+
+- `CopyOnWriteArrayList`通过“副本”解决并发问题
+
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+### `ConcurrentHashMap`
+
+- `ConcurrentHashMap`采用“分段锁”的方式
+
+
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+## `JUC`之`Atomic`包与`CAS`算法
+
+
+
+### 回顾原子性
+
+- 原子性：是指一个操作或多个操作要么全部执行，且执行的过程不会被任何因素打断，要么就都不执行。
+
+
+
+### `Atomic`包
+
+
+
+- `Atomic`包是`java.util.concurrent`下的另一个专门为线程安全设计的`Java`包，包含多个原子操作类。
+
+- `Atomic`常用类
+
+  - `AtomicInteger`
+
+  - `AtomicIntegerArray`
+
+  - `AtomicBoolean`
+
+  - `AtomicLong`
+
+  - `AtomicLongArray`
+
+
+
+
+### 白话`CAS`算法
+
+
+
+- 锁是用来做并发最简单的方式，当然其代价也是最高的。独占锁是一种悲观锁，`synchronized`就是一种独占锁，它假设最坏的情况，并且只有1在确保其他线程不会造成干扰的情况下执行，会导致其他所有需要锁的线程挂起，等待持有锁的线程释放锁。
+- 所谓乐观锁就是，每次不加锁而是假设没有冲突而去完成某项操作，如果因为冲突失败就重试，直到成功为止。其中`CAS`（比较与交换，`Compare And Swap`）是一种最有名的无锁算法。
+
+
+
+### 白话`C(Compare)A(And)Swap`算法
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+### `Atomic`的应用场景
+
+
+
+- 虽然基于`CAS`的线程安全机制很好很高效，但要说的是，并非所有线程安全都可以用这样的方法来实现，这只适合一些粒度比较小型，如计数器这样的需求用起来才有效，否则也不会有锁的存在了。
 
 
 
