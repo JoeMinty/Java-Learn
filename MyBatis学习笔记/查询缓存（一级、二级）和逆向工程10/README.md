@@ -49,11 +49,11 @@ b、在具体的`mapper.xml`中声明开启(`studentMapper.xml`中)
 
 
 
-**回顾：**`namespace`的值 就是 接口的全类名（包名.类名）， 通过接口可以产生代理对象（`studentMapper`对象）`-->namespace`决定了`studentMapper`对象的产生
+**回顾：** `namespace`的值 就是 接口的全类名（包名.类名）， 通过接口可以产生代理对象（`studentMapper`对象）`-->namespace`决定了`studentMapper`对象的产生
 
 
 
-**结论：**只要产生的`xxxMapper`对象 来自于同一个`namespace`，则 这些对象 共享二级缓存。
+**结论：** 只要产生的`xxxMapper`对象 来自于同一个`namespace`，则 这些对象 共享二级缓存。
 
 
 
