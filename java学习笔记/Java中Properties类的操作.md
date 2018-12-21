@@ -4,16 +4,16 @@
 
 ## 一、`Java Properties`类
 
- 	`Java`中有个比较重要的类`Properties`（`Java.util.Properties`），主要用于读取`Java`的配置文件，各种语言都有自己所支持的配置文件，配置文件中很多变量是经常改变的，这样做也是为了方便用户，让用户能够脱离程序本身去修改相关的变量设置。
+ `Java`中有个比较重要的类`Properties`（`Java.util.Properties`），主要用于读取`Java`的配置文件，各种语言都有自己所支持的配置文件，配置文件中很多变量是经常改变的，这样做也是为了方便用户，让用户能够脱离程序本身去修改相关的变量设置。
 
-​	像`Python`支持的配置文件是`.ini`文件，同样，它也有自己读取配置文件的类`ConfigParse`，方便程序员或用户通过该类的方法来修改`.ini`配置文件。
+ 像`Python`支持的配置文件是`.ini`文件，同样，它也有自己读取配置文件的类`ConfigParse`，方便程序员或用户通过该类的方法来修改`.ini`配置文件。
 
-​	在`Java`中，其配置文件常为`.properties`文件，格式为文本文件，文件的内容的格式是“键=值”的格式，文本注释信息可以用"#"来注释。
+ 在`Java`中，其配置文件常为`.properties`文件，格式为文本文件，文件的内容的格式是“键=值”的格式，文本注释信息可以用"#"来注释。
 
 `Properties`类继承自`Hashtable`，如下：
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%AD%A6%E4%B9%A0%E5%9B%BE%E7%89%87/properties.png" />
 </div>
 
 
