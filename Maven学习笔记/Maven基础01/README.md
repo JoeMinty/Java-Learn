@@ -72,6 +72,7 @@
 **约定 优于 配置**
 
 硬编码方式：`job.setPath("d:\\abc") ;`
+
 配置方式：
 ​	`job`
 ​	`conf.xml     <path>d:\\abc</path>`
