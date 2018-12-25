@@ -9,19 +9,25 @@
 
 - 将项目拆分成若干个模块
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97.png" />
 </div>
 
 ## `Maven`概念
 - 是一个基于Java平台的 自动化构建工具
 - `make`-`ant`-`maven`-`gradle`
 
-**清理：**删除编译的结果，为重新编译做准备。
+**清理：** 删除编译的结果，为重新编译做准备。
+
 **编译：**`.java->.class`
-**测试：**针对于 项目中的关键点进行测试，亦可用 项目中的测试代码 去测试开发代码；
-**报告: **将测试的结果 进行显示
+
+**测试：** 针对于 项目中的关键点进行测试，亦可用 项目中的测试代码 去测试开发代码；
+
+**报告: ** 将测试的结果 进行显示
+
 **打包：** 将项目中包含的多个文件 压缩成一个文件， 用于安装或部署。 （`java`项目-`jar`、`web`项目-`war`）
+
 **安装：**将打成的包  放到  本地仓库，供其他项目使用。
+
 **部署：**将打成的包  放到  服务器上准备运行。
 -- 将`java`、`js`、`jsp`等各个文件 进行筛选、组装，变成一个 可以直接运行的项目
 -- 大米->米饭
@@ -56,7 +62,9 @@
 - d.验证
 	`mvn -v`
 - e.配置本地仓库  `maven`目录`/conf/settings.xml`
+	
 	默认本地仓库 ：`C:/Users/MOONS/.m2/repository`
+	
 	修改本地仓库：`<localRepository>D:/mvnrep</localRepository>`
 	
 ## 使用`Maven`
@@ -100,9 +108,11 @@
 
 ### 依赖：
 `commons-fileupload.jar --> commons-io.jar`
+
 `A`中的某些类 需要使用`B`中的某些类，则称为`A`依赖于`B`
+
 在`Maven`项目中，如果要使用 一个当时存在的`Jar`或模块，则可以通过 依赖实现（去本地仓库、中央仓库去寻找）
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" />
 </div>
