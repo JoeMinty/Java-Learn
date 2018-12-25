@@ -91,7 +91,7 @@
 	--test			：测试代码
 		--java			
 		--resources	
-	pom.xml
+pom.xml
 ```
 
 ```
@@ -117,3 +117,28 @@
 <div align="center">
 <img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" />
 </div>
+
+
+
+
+## `Maven`相关命令
+
+执行`mvn`：  必须在`pom.xml`所在目录中执行
+
+`Maven`常见命令： （第一次执行命令时，因为需要下载执行该命令的基础环境，所以会从中央仓库下载该环境到本地仓库）
+
+<div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+编译：  (`Maven`基础组件 ，基础`Jar`)
+- `mvn compile`   --只编译`main`目录中的`java`文件
+- `mvn test`     测试
+- `mvn package`          打成`jar/war`
+- `mvn install`  将开发的模块 放入本地仓库，供其他模块使用 （放入的位置 是通过配置在`pom.xml`中的坐标决定的）
+
+- `mvn clean`  删除`target`目录（删除编译文件的目录）
+- 运行`mvn`命令，必须在`pom.xml`文件所在目录
+
