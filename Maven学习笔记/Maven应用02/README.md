@@ -22,7 +22,7 @@ A.jar -> B.jar
 	`compile`(默认)  、`test`、  `provided`
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E4%BE%9D%E8%B5%96%E8%8C%83%E5%9B%B4.png" />
 </div>
 
 |                              | **`compile`** | **`test`** | **`provided`** |
@@ -73,7 +73,7 @@ A.jar -> B.jar
   - ii.如果是不同的 `pom.xml`中有2个相同的依赖（优先）：则先声明的依赖 ，会覆盖后声明的依赖
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99.png" />
 </div>
 
 ### 5、多个`maven`项目（模块）之间如何 依赖： p项目 依赖于->q项目
@@ -95,7 +95,7 @@ A.jar -> B.jar
 ## `Maven`生命周期
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Maven%E5%9B%BE%E7%89%87/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" />
 </div>
 
 ### 生命周期和构建的关系：
