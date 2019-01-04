@@ -83,7 +83,7 @@ student.setXxx();
 `IOC`容器赋值：如果是简单类型（8个基本+`String`），`value`； 
 如果是对象类型，`ref`="需要引用的`id`值"，因此实现了 对象与对象之间的依赖关系
 
-	`context.getBean` (需要获取的 `bean` 的 `id` 值)
+	`context.getBean` (需要获取的 `bean`的 `id` 值)
 
 
 
