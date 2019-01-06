@@ -21,7 +21,7 @@
 
 
 <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/validated%E6%A0%A1%E9%AA%8C%E5%B1%9E%E6%80%A7%E5%88%86%E7%B1%BB.jpg" />
 </div>
 
 
