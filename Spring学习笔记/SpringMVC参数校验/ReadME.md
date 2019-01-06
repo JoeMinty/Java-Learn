@@ -202,3 +202,8 @@ public class GlobalExceptionHandler {
 
 ## `SpringMVC`的请求`URL`校验
 
+### 参考资料
+
+这两个链接是通过切面实现全局捕捉参数校验，具备参考价值
+https://www.jianshu.com/p/29a51941df2a
+https://www.jianshu.com/p/420f7d8735ef
