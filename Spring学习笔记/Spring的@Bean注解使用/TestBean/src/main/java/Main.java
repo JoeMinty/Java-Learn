@@ -11,7 +11,7 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 
         //加载单独的类
-        //ApplicationContext context = new AnnotationConfigApplicationContext(BeanTest.BeanTest.class);
+        //ApplicationContext context = new AnnotationConfigApplicationContext(BeanTest.class);
 
 
         //获取当前Spring IOC容器的所有Bean
