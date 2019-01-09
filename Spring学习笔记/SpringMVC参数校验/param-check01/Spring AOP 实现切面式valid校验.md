@@ -4,9 +4,11 @@
 
 >  **Why:**
 >  为什么要用`aop`实现校验？
+>
 >  **`Answer`:**
 >  `Spring mvc` 默认自带的校验机制`@Valid + BindingResult`,
 >  但这种默认实现都得在`Controller`方法的中去接收`BindingResult`，从而进行校验.
+>
 >  `eg:`
 >
 > ```
