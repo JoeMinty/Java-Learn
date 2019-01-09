@@ -1,6 +1,6 @@
 # `Spring AOP` `@PathVariable`和`@RequestParam`参数进行校验`(valid）`
 
-> 在**`Spring AOP` 实现切面式`valid`校验**文章中，通过`AOP`对`@RequestBody`注解进行的参数进行校验
+> 在 **`Spring AOP` 实现切面式`valid`校验** 文章中，通过`AOP`对`@RequestBody`注解进行的参数进行校验
 >  那么对于 `@PathVariable`和`@RequestParam` 却没有对应的`Spring mvc` 默认自带的校验机制 `@Valid + BindingResult`。那么此时该校验的话，只能代码上逐一进行校验。
 
 先说明一下`@PathVariable`和`@RequestParam`；两个注解的用法。
@@ -12,6 +12,7 @@
 #### 1.1.1 `RESTful`风格
 
 格式：`path/1/moons`
+
  `eg:`
 
 ```
