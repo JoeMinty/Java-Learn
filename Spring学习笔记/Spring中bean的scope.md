@@ -19,7 +19,7 @@
 ```
 
  <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/%E4%BA%94%E7%A7%8D%E7%B1%BB%E5%9E%8B.PNG" />
 </div>
 
 
@@ -29,7 +29,7 @@
 ​	配置中的`bean`定义可以看作是一个模板，容器会根据这个模板来构造对象。`bean`定义中的`Scope`语义会决定：容器将根据这个模板构造多少对象实例，又该让这个对象实例存活多久。标记为拥有`singleton scope`的对象定义，在`Spring`的`IoC`容器中只存在一个对象实例，所有该对象的引用都共享这个实例。该实例从容器启动，并因为第一次被请求而初始化之后，将一直存活到容器退出，也就是说，它与`IoC`容器"几乎"拥有相同的"寿命"。
 
  <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/singleton.PNG" />
 </div>
 
 
@@ -43,7 +43,7 @@
 ​	从`Spring`参考文档下的这幅图片，可以再次了解`prototype scope`的`bean`定义，在实例化对象和注入依赖的时候，它的具体语义是什么样子。
 
  <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9B%BE%E7%89%87/scope.PNG" />
 </div>
 
 
