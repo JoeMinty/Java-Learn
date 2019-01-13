@@ -305,7 +305,10 @@ public final class Class<T> implements java.io.Serializable,
 
 `java.lang.reflect.AnnotatedElement `接口是所有程序元素（`Class`、`Method`和`Constructor`）的父接口，所以程序通过反射获取了某个类的`AnnotatedElement`对象之后，程序就可以调用该对象的如下四个个方法来访问Annotation信息：
 
-　　**方法1：**`<T extends Annotation> T getAnnotation(Class<T> annotationClass)`: 返回改程序元素上存在的、指定类型的注解，如果该类型注解不存在，则返回`null`。
-　　**方法2：**`Annotation[] getAnnotations()`:返回该程序元素上存在的所有注解。
-　    **方法3：**`boolean isAnnotationPresent(Class<?extends Annotation> annotationClass)`:判断该程序元素上是否包含指定类型的注解，存在则返回`true`，否则返回`false`.
-　　**方法4：**`Annotation[] getDeclaredAnnotations()`：返回直接存在于此元素上的所有注解。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）该方法的调用者可以随意修改返回的数组；这不会对其他调用者返回的数组产生任何影响
+**方法1：**`<T extends Annotation> T getAnnotation(Class<T> annotationClass)`: 返回改程序元素上存在的、指定类型的注解，如果该类型注解不存在，则返回`null`。
+  
+**方法2：**`Annotation[] getAnnotations()`:返回该程序元素上存在的所有注解。
+
+**方法3：**`boolean isAnnotationPresent(Class<?extends Annotation> annotationClass)`:判断该程序元素上是否包含指定类型的注解，存在则返回`true`，否则返回`false`
+
+**方法4：**`Annotation[] getDeclaredAnnotations()`：返回直接存在于此元素上的所有注解。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）该方法的调用者可以随意修改返回的数组；这不会对其他调用者返回的数组产生任何影响
