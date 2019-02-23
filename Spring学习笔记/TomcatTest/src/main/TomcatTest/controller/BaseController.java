@@ -30,4 +30,10 @@ public class BaseController {
         return "Hello Tomcat";
     }
 
+    @RequestMapping("/test1")
+    public String test1() {
+        System.out.println("Hello Test1");
+        return "Hello Test1";
+    }
+
 }
