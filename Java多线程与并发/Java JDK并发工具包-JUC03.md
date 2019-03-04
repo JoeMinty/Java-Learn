@@ -94,7 +94,7 @@
 
 
 
-- `CyclicBarrier`是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与`CountDownLatch`不同的是该`barrier`在释放等待线程厚可以重用，所以称它为循环`(Cyclic)`的屏障`(Barrier)`。
+- `CyclicBarrier`是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点。与`CountDownLatch`不同的是该`barrier`在释放等待线程后可以重用，所以称它为循环`(Cyclic)`的屏障`(Barrier)`。
 
 
 <div align="center">
