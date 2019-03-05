@@ -33,8 +33,8 @@ public class CountDownSample {
             e.printStackTrace();
         }*/
         try {
-            cdl.await(); //堵塞当前线程，知道cdl=0的时候再继续往下走
-            //为了避免程序一致挂起，我们可以设置一个timeout时间
+            cdl.await(); //堵塞当前线程，直到cdl=0的时候再继续往下走
+            //为了避免程序一直挂起，我们可以设置一个timeout时间
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
