@@ -1,4 +1,4 @@
-## 参考资料
+# `Java`反射机制
 
 反射的一大好处就是可以允许我们在运行期间获取对象的类型信息
 
@@ -26,6 +26,7 @@ Class<?> c = Class.forName("java.lang.String");
 Class<?> c = String.class;
 ```
 
+## 参考资料
 
 http://www.importnew.com/tag/%E5%8F%8D%E5%B0%84
 
