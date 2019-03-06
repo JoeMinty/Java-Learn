@@ -1,8 +1,10 @@
 # 直接用`ConcurrentHashMap`代替`HashMap`引发的问题
 
-## `ConcurrentHashMap`的测试方式
+
 
 读《大型网站系统与Java中间件实践》里边有提到直接将`HashMap`替换成`ConcurrentHashMap`时会有问题，写了一段代码测试一下其中的问题：
+
+## `ConcurrentHashMap`的测试方式
 
 ```
 package com.github.dockerjava.core.Test.ConcurrentTest;
