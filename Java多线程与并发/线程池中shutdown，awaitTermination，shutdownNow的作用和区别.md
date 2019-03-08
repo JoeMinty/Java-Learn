@@ -27,7 +27,7 @@ try{
 
 ### `awaitTermination`方法
 
-`awaitTermination`方法：接收人`timeout`和`TimeUnit`两个参数，用于设定超时时间及单位。当等待超过设定时间时，会监测`ExecutorService`是否已经关闭，若关闭则返回`true`，否则返回`false`。一般情况下会和`shutdown`方法组合使用。
+`awaitTermination`方法：接收`timeout`和`TimeUnit`两个参数，用于设定超时时间及单位。当等待超过设定时间时，会监测`ExecutorService`是否已经关闭，若关闭则返回`true`，否则返回`false`。一般情况下会和`shutdown`方法组合使用。
 
 
 ### `shutdownNow`方法
