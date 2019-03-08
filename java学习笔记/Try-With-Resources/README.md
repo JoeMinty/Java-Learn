@@ -170,3 +170,8 @@ public static void main(String[] args) {
 1、当一个外部资源的句柄对象实现了`AutoCloseable`接口，`JDK7`中便可以利用`try-with-resource`语法更优雅的关闭资源，消除板式代码。
 
 2、`try-with-resource`时，如果对外部资源的处理和对外部资源的关闭均遭遇了异常，"关闭异常"将被抑制，"处理异常"将被抛出，但"关闭异常"并没有丢失，而是存放在"处理异常"的被抑制的异常列表中。
+
+
+## 参考文献
+
+http://www.importnew.com/30000.html
