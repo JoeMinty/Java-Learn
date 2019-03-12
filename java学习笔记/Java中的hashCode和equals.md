@@ -4,7 +4,7 @@
 
 ## 一、`hashCode()`和`equals()`是什么？
 
-`hashCode()`方法和`equals()`方法的作用其实一样，在`Java`里都是用来对比两个对象释放相等一致。
+`hashCode()`方法和`equals()`方法的作用其实一样，在`Java`里都是用来对比两个对象是否相等一致。
 
 
 
