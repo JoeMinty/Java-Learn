@@ -44,6 +44,16 @@ Class<?> c = Class.forName("java.lang.String");
 Class<?> c = String.class;
 ```
 
+## 使用反射构建对象
+
+`Class.forName("ClassName").newInstaance();`
+
+上面的这行代码是创建对象的一种方式。可以看到与平时的`new XXX()`完全不同，在这里，`"ClassName"`字符串可以用一个变量代替，也就是运行时才知道要构建的对象的类是什么，而不是像`new XXX()`那样进行**硬编码**。这正是动态性的体现。
+
+**注意：**
+
+需要注意的是通过`newInstance`调用来构造对象时，要求被构造的对象的类一定要有一个无参数的构造函数，否则会抛出异常
+
 ## 反射的应用
 
 ### 获取类型信息
