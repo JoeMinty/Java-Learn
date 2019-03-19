@@ -79,6 +79,16 @@ Process finished with exit code 0
 `JAVA 7`之后，我们盼来福音，再也不需要在`finally`面写一堆`if（xxx !=null）xxx.close()`的代码，只要资源实现了`AutoCloseable`或者`Closeable`接口，`try-with-resources`能帮其自动关闭。将以上的代码改写为`try-with-resources`
 
 ```
+try (BufferedReader br = new BufferedReader(...) ) {
+	//do sometinhg 
+}
+catch(IOException|XEception e) {
+	// Handle it
+}
+
+```
+
+```
 public class TryWithResource {
 
     public static void main(String[] args) {
@@ -90,6 +100,7 @@ public class TryWithResource {
     }
 }
 ```
+
 运行结果如下：
 
 ```
