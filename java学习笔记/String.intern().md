@@ -31,7 +31,7 @@ public class RuntimeConstanPoolOOM {
 
 ### 一、
 
-`new String`都是在堆上创建字符串对象。当调用 `ntern() `方法时，编译器会将字符串添加到常量池中（`StringTable`维护），并返回指向该常量的引用。 
+`new String`都是在堆上创建字符串对象。当调用 `intern() `方法时，编译器会将字符串添加到常量池中（`StringTable`维护），并返回指向该常量的引用。 
 
 
 
