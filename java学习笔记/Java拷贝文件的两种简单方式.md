@@ -62,7 +62,7 @@ public class Main01 {
 写入操作也是类似，仅仅是步骤相反，参考图如下：
 
  <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%AD%A6%E4%B9%A0%E5%9B%BE%E7%89%87/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81%E5%A4%8D%E5%88%B6.PNG" />
 </div>
 
 
@@ -84,5 +84,5 @@ public class Main01 {
 
 
  <div align="center">
-<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%AD%A6%E4%B9%A0%E5%9B%BE%E7%89%87/%E9%9B%B6%E6%8B%B7%E8%B4%9D%E6%8A%80%E6%9C%AF.PNG" />
 </div>
