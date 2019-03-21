@@ -52,6 +52,37 @@ public class Main01 {
 
 ### 上下文切换
 
-用户态空间`（User Space）`和内核态空间`（Kernel Space）`，这是操作系统
+用户态空间（`User Space`）和内核态空间（`Kernel Space`），这是操作系统
 层面的基本概念，操作系统内核、硬件驱动等运行在内核态空间，具有相对高的特权；而用户态空间，则是给普通应用和服务使用。
 
+
+
+当我们使用输入输出流进行读写时，实际上是进行了多次上下文切换，比如应用读取数据时，先在内核态将数据从磁盘读取到内核缓存，再切换到用户态将数据从内核缓存读取到用户缓存。
+
+写入操作也是类似，仅仅是步骤相反，参考图如下：
+
+ <div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
+
+
+
+
+
+
+
+所以，这种方式会带来一定的额外开销，可能会降低 `IO`效率。
+而基于` NIO transferTo `的实现方式，在` Linux `和` Unix `上，则会使用到**零拷贝技术**，数据传输
+并不需要用户态参与，省去了上下文切换的开销和不必要的内存拷贝，进而可能提高应用拷贝性
+能。
+
+
+
+**注意**:`transferTo` 不仅仅是可以用在文件拷贝中，与其类似的，例如读取磁盘文件，然后
+进行 `Socket`发送，同样可以享受这种机制带来的性能和扩展性提高。`transferTo` 的传输过程是：
+
+
+
+ <div align="center">
+<img src="https://github.com/ZP-AlwaysWin/Java-Learn/blob/master/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/MyBatis%E5%9B%BE%E7%89%87/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B.png" />
+</div>
