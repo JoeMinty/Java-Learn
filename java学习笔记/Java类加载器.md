@@ -20,3 +20,8 @@
 - 扩展类加载器（`ExtClassLoader`），`Java` 实现，父类加载器为 `null`。
 - 应用程序类加载器（`AppClassLoader`），`Java` 实现，父类加载器为 `ExtClassLoader` 。
 - 自定义类加载器，父类加载器为`AppClassLoader`。
+
+
+## 参考资料
+
+http://www.importnew.com/30567.html
