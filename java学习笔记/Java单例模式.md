@@ -43,3 +43,9 @@ public class Singleton {
 }
 
 ```
+
+## 参考链接
+
+http://www.importnew.com/29338.html
+
+http://www.importnew.com/29343.html
