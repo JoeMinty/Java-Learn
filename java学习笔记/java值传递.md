@@ -12,7 +12,7 @@ Java只有值传递
 
 Java语言提供了八种基本类型。六种数字类型（四个整数型（默认是`int` 型），两个浮点型（默认是`double` 型）），一种字符类型，还有一种布尔型。
 
-`byte`、`short`、`int`、`long`、`float`、`double`、`boolean`、`char`
+`byte（8位）`、`short（16位）`、`int（32位）`、`long（64位）`、`float（32位）`、`double（64位）`、`boolean`、`char（16位）`
 
 #### **实例1:**
 
