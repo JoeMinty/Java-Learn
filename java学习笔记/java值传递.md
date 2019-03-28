@@ -106,3 +106,8 @@ Process finished with exit code 0
 
 
 3、`sbC`虽然也是`StringBuffer`; 但是因为`new StringBuffer("c1")`,因此又产生了一个新的引用（与原来的引用已经断开了）
+
+
+#### 参考文档
+
+http://www.importnew.com/29023.html
