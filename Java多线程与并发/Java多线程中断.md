@@ -23,12 +23,19 @@ public class InterruptExample {
         }
     }
 }
+```
+
+```
 public static void main(String[] args) throws InterruptedException {
     Thread thread1 = new MyThread1();
     thread1.start();
     thread1.interrupt();
     System.out.println("Main run");
 }
+
+```
+
+```
 Main run
 java.lang.InterruptedException: sleep interrupted
     at java.lang.Thread.sleep(Native Method)
