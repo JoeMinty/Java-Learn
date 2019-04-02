@@ -6,7 +6,7 @@ public class AbnormalSemaphoreSample {
         //permits 这个参数注意一下：允许初始可用许可证数量，目前应用中有-2个。
         Semaphore semaphore = new Semaphore(-2);
 
-        //想要获取许可证的有10个线程，只有都获得了线程了，才能执行完。
+        //想要获取许可证的有10个线程，只有都获得了许可证了，才能执行完。
         for (int i = 0; i < 10; i++) {
             Thread t = new Thread(new MyWorker(semaphore));
             t.start();
